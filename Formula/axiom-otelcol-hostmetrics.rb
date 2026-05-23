@@ -47,14 +47,23 @@ class AxiomOtelcolHostmetrics < Formula
       umask 077
       cat > "$CFG" <<YAML
       receivers:
-        hostmetrics:
+        host_metrics:
           collection_interval: 10s
-          scrapers: { cpu:, memory:, load:, disk:, filesystem:, network:, paging:, processes: }
+          scrapers:
+            cpu:
+            memory:
+            load:
+            disk:
+            filesystem:
+            network:
+            paging:
+            processes:
       processors:
-        resourcedetection: { detectors: [system, env] }
+        resourcedetection:
+          detectors: [system, env]
         batch:
       exporters:
-        otlphttp/axiom:
+        otlp_http/axiom:
           endpoint: https://${ENDPOINT}
           headers:
             authorization: "Bearer ${TOKEN}"
@@ -62,9 +71,9 @@ class AxiomOtelcolHostmetrics < Formula
       service:
         pipelines:
           metrics:
-            receivers: [hostmetrics]
+            receivers: [host_metrics]
             processors: [resourcedetection, batch]
-            exporters: [otlphttp/axiom]
+            exporters: [otlp_http/axiom]
       YAML
       echo "Wrote $CFG"
 
