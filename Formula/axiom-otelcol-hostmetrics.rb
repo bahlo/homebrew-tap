@@ -3,7 +3,6 @@ class AxiomOtelcolHostmetrics < Formula
   homepage "https://opentelemetry.io"
   version "0.152.1"
   license "Apache-2.0"
-  keep_alive { successful_exit: false, crashed: false }
 
   on_macos do
     on_arm do
