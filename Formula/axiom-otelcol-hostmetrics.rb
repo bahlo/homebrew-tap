@@ -68,8 +68,8 @@ class AxiomOtelcolHostmetrics < Formula
       YAML
       echo "Wrote $CFG"
 
-      echo "(Re)starting $FORMULA..."
-      brew services restart "$FORMULA"
+      echo "(Re)starting axiom-otelcol-hostmetrics..."
+      brew services restart axiom-otelcol-hostmetrics
     SH
     chmod 0755, bin/"axiom-otelcol-hostmetrics-setup"
   end
