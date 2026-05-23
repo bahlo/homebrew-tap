@@ -38,6 +38,8 @@ class AxiomOtelcolHostmetrics < Formula
       CFG="#{etc}/axiom-otelcol-hostmetrics/config.yaml"
       FORMULA="#{full_name}"
 
+      mkdir -p $(dirname "$CFG")
+
       read -rp  "Axiom dataset name: " DATASET
       read -rsp "Axiom API token (xaat-...): " TOKEN; echo
       read -rp  "Axiom edge deployment (e.g. us-east-1.aws.edge.axiom.co): " ENDPOINT
